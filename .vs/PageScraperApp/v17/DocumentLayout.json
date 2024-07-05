@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\selenium_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\selenium_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\http_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\http_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Selenium_PageScraper.cs",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Selenium_PageScraper.cs",
+              "RelativeDocumentMoniker": "PageScraper\\Selenium_PageScraper.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Selenium_PageScraper.cs",
+              "RelativeToolTip": "PageScraper\\Selenium_PageScraper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T19:03:35.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HTTP_PageScraper.cs",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\HTTP_PageScraper.cs",
+              "RelativeDocumentMoniker": "PageScraper\\HTTP_PageScraper.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\HTTP_PageScraper.cs",
+              "RelativeToolTip": "PageScraper\\HTTP_PageScraper.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T15:30:30.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Program.cs",
+              "RelativeDocumentMoniker": "PageScraper\\Program.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Program.cs",
+              "RelativeToolTip": "PageScraper\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-05T15:24:11.944Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

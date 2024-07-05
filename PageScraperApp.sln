@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageScraper", "PageScraper\PageScraper.csproj", "{048161F4-96AF-446C-9D5E-7B96169367CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{048161F4-96AF-446C-9D5E-7B96169367CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{048161F4-96AF-446C-9D5E-7B96169367CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{048161F4-96AF-446C-9D5E-7B96169367CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{048161F4-96AF-446C-9D5E-7B96169367CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFB8901B-7AF1-4D72-8835-B8F46B008E99}
+	EndGlobalSection
+EndGlobal
