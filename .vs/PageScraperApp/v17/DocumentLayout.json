@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\selenium_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\selenium_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\scrapers\\zillowscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\scrapers\\zillowscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\http_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\http_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\scrapers\\youtubescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\scrapers\\youtubescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\models\\zillow_mlsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\models\\zillow_mlsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\scrapers\\selenium_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\scrapers\\selenium_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|c:\\users\\moham\\onedrive\\desktop\\repos\\personal\\pagescraperapp\\pagescraper\\scrapers\\http_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{048161F4-96AF-446C-9D5E-7B96169367CD}|PageScraper\\PageScraper.csproj|solutionrelative:pagescraper\\scrapers\\http_pagescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,29 +46,67 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Zillow_MLSModel.cs",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Models\\Zillow_MLSModel.cs",
+              "RelativeDocumentMoniker": "PageScraper\\Models\\Zillow_MLSModel.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Models\\Zillow_MLSModel.cs",
+              "RelativeToolTip": "PageScraper\\Models\\Zillow_MLSModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T00:51:54.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ZillowScraper.cs",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Scrapers\\ZillowScraper.cs",
+              "RelativeDocumentMoniker": "PageScraper\\Scrapers\\ZillowScraper.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Scrapers\\ZillowScraper.cs",
+              "RelativeToolTip": "PageScraper\\Scrapers\\ZillowScraper.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAASwDQAAABoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T00:51:25.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "YouTubeScraper.cs",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Scrapers\\YouTubeScraper.cs",
+              "RelativeDocumentMoniker": "PageScraper\\Scrapers\\YouTubeScraper.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Scrapers\\YouTubeScraper.cs",
+              "RelativeToolTip": "PageScraper\\Scrapers\\YouTubeScraper.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAiwCQAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T21:26:32.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Selenium_PageScraper.cs",
-              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Selenium_PageScraper.cs",
-              "RelativeDocumentMoniker": "PageScraper\\Selenium_PageScraper.cs",
-              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Selenium_PageScraper.cs",
-              "RelativeToolTip": "PageScraper\\Selenium_PageScraper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Scrapers\\Selenium_PageScraper.cs",
+              "RelativeDocumentMoniker": "PageScraper\\Scrapers\\Selenium_PageScraper.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Scrapers\\Selenium_PageScraper.cs",
+              "RelativeToolTip": "PageScraper\\Scrapers\\Selenium_PageScraper.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAABGwBsAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-05T19:03:35.081Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "HTTP_PageScraper.cs",
-              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\HTTP_PageScraper.cs",
-              "RelativeDocumentMoniker": "PageScraper\\HTTP_PageScraper.cs",
-              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\HTTP_PageScraper.cs",
-              "RelativeToolTip": "PageScraper\\HTTP_PageScraper.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAmAAAA",
+              "DocumentMoniker": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Scrapers\\HTTP_PageScraper.cs",
+              "RelativeDocumentMoniker": "PageScraper\\Scrapers\\HTTP_PageScraper.cs",
+              "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Scrapers\\HTTP_PageScraper.cs",
+              "RelativeToolTip": "PageScraper\\Scrapers\\HTTP_PageScraper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T15:30:30.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-05T15:30:30.322Z"
             },
             {
               "$type": "Document",
@@ -66,7 +116,7 @@
               "RelativeDocumentMoniker": "PageScraper\\Program.cs",
               "ToolTip": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\Program.cs",
               "RelativeToolTip": "PageScraper\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA3AAAA",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAwBMAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-05T15:24:11.944Z",
               "EditorCaption": ""

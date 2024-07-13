@@ -24,3 +24,8 @@ C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\obj\De
 C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\obj\Debug\net8.0\PageScraper.pdb
 C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\obj\Debug\net8.0\PageScraper.genruntimeconfig.cache
 C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\obj\Debug\net8.0\ref\PageScraper.dll
+C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
+C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
+C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\bin\Debug\net8.0\WebDriver.dll
+C:\Users\moham\OneDrive\Desktop\Repos\Personal\PageScraperApp\PageScraper\obj\Debug\net8.0\PageScraper.sourcelink.json
