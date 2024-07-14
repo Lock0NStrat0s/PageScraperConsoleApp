@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PageScraper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f5ca1f0ebbebbb395c6050582747ab9ee34a399")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb08e3d3cd4725f074aa271235955f83816068dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("PageScraper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PageScraper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

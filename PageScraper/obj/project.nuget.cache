@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5jXfbGWsZbc=",
+  "dgSpecHash": "fWGglos1L6M=",
   "success": true,
   "projectFilePath": "C:\\Users\\moham\\OneDrive\\Desktop\\Repos\\Personal\\PageScraperApp\\PageScraper\\PageScraper.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\moham\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\selenium.webdriver\\4.22.0\\selenium.webdriver.4.22.0.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\selenium.webdriver.chromedriver\\126.0.6478.12600\\selenium.webdriver.chromedriver.126.0.6478.12600.nupkg.sha512",
+    "C:\\Users\\moham\\.nuget\\packages\\seleniumextras.waithelpers\\1.0.2\\seleniumextras.waithelpers.1.0.2.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
   ],

@@ -10,8 +10,8 @@ namespace PageScraper.Scrapers;
 internal class HTTP_PageScraper
 {
     private static readonly HttpClient client = new HttpClient();           // client to make HTTP requests
-    private HashSet<string> links = new HashSet<string>();                  // set to store links
-    private HashSet<string> images = new HashSet<string>();                 // set to store image URLs
+    //private HashSet<string> links = new HashSet<string>();                  // set to store links
+    //private HashSet<string> images = new HashSet<string>();                 // set to store image URLs
 
     /// <summary>
     /// Method to scrape the given URL
@@ -24,12 +24,12 @@ internal class HTTP_PageScraper
         string html = await FetchHTMLContent(response);
         HtmlNodeCollection links = LoadHTMLContent(html);
 
-        int i = 0;
-        foreach (var item in links)
-        {
-            string result = item.InnerText == "" ? item.GetAttributeValue("href", "") : item.InnerText;
-            Console.WriteLine($"{i++}: {result}");
-        }
+        //int i = 0;
+        //foreach (var item in links)
+        //{
+        //    //string result = item.InnerText == "" ? item.GetAttributeValue("href", "") : item.InnerText;
+        //    Console.WriteLine($"{i++}: {item}");
+        //}
     }
 
     /// <summary>
@@ -83,7 +83,7 @@ internal class HTTP_PageScraper
         HtmlDocument document = new HtmlDocument();
         document.LoadHtml(html);
 
-        HtmlNodeCollection links = document.DocumentNode.SelectNodes("//a[@href]");  // select all anchor tags with href attribute
+        HtmlNodeCollection links = document.DocumentNode.SelectNodes("//div[@data-testid]");  // select all div tags with the specified attribute
         return links;
     }
 }
