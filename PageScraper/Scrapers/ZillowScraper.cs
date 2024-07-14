@@ -15,6 +15,7 @@ namespace PageScraper.Scrapers;
 internal class ZillowScraper
 {
     private readonly string _url;
+    public FeaturesCollection Features { get; private set; }
     public ZillowScraper(string url)
     {
         _url = url;
@@ -72,41 +73,53 @@ internal class ZillowScraper
             // Elements inside features
             var elements = driver.FindElements(By.XPath("//div[@data-testid='fact-category']"));
 
-            List<string> mainFeatures = new();
-            List<string> subFeatures = new();
-            List<string> subElements = new();
-
+            //class
+            List<FeatureInfo> mainFeaturesList = new List<FeatureInfo>();
             // Extract text from each element using JavaScript
-            foreach (IWebElement item in h3)
+            foreach (IWebElement h in h3)
             {
-                string text = JSExecution(driver, item).Trim();
+                string text = JSExecution(driver, h).Trim();
+                string mainFeatureText = "";
+
+                List<SubFeatureInfo> subFeaturesList = new List<SubFeatureInfo>();
+
                 if (text != null || text != "")
                 {
-                    mainFeatures.Add(text);
+                    mainFeatureText = text;
                 }
-            }
 
-            foreach (IWebElement item in elements)
-            {
-                string[] text = JSExecution(driver, item).Trim().Split("\r\n");
-                bool isFirst = true;
-
-                foreach (var element in text)
+                foreach (IWebElement element in elements)
                 {
-                    if (element != null || element != "")
+                    string[] texts = JSExecution(driver, element).Trim().Split("\r\n");
+                    bool isFirst = true;
+
+                    string subFeatureText = "";
+                    List<string> subElements = new();
+
+                    foreach (string t in texts)
                     {
-                        if (isFirst)
+                        if (t != null || t != "")
                         {
-                            subFeatures.Add(element);
-                            isFirst = false;
-                        }
-                        else
-                        {
-                            subElements.Add(element);
+                            if (isFirst)
+                            {
+                                subFeatureText = t;
+                                isFirst = false;
+                            }
+                            else
+                            {
+                                subElements.Add(t);
+                            }
                         }
                     }
+                    subFeaturesList.Add(new SubFeatureInfo(subFeatureText, subElements));
                 }
+                // add to feature class
+                
+                mainFeaturesList.Add(new FeatureInfo(mainFeatureText, subFeaturesList));
+                subFeaturesList.Clear();
             }
+            Features = new FeaturesCollection(mainFeaturesList);
+            Console.WriteLine();
         }
         finally
         {

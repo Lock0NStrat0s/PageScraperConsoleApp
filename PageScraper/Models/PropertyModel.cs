@@ -16,6 +16,6 @@ internal class PropertyModel
     public decimal SquareFootage { get; set; }
     public int YearBuilt { get; set; }
     public string MLSNumber { get; set; }
-    public string Additional { get; set; }
+    public Dictionary<string, Dictionary<string, List<string>>> Features { get; set; }
     public DateTime DateCreated { get; set; }
 }
