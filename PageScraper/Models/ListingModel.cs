@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PageScraper.Models;
 
-internal class ListingModel
+public class ListingModel
 {
-    public int Id { get; set; }
+    public int ListingId { get; set; }
     public int PropertyId { get; set; }
     public int UserId { get; set; }
     public DateTime ListingDate { get; set; }

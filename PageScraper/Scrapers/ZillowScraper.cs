@@ -7,8 +7,8 @@ using System.Xml.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using PageScraper.Models;
 using SeleniumExtras.WaitHelpers;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace PageScraper.Scrapers;
 
@@ -40,30 +40,29 @@ internal class ZillowScraper
 
             // Extract price
             string priceText = driver.FindElement(By.XPath("//span[@data-testid='price']")).Text;
-            StringBuilder moneyExtractor = new StringBuilder();
-            foreach (var c in priceText)
-            {
-                if (char.IsDigit(c) || c == '.')
-                {
-                    moneyExtractor.Append(c);
-                }
-            }
-            string moneyString = moneyExtractor.ToString();
-            decimal.TryParse(moneyString, out decimal price);
+            decimal price = ExtractValue<decimal>(priceText);
 
             // Extract number of bedrooms, bathrooms, and square footage
             List<string> details = driver.FindElements(By.XPath("//div[@data-testid='bed-bath-sqft-fact-container']")).Select(x => x.Text).ToList();
-            string bedrooms = details[0].Split("\r\n")[0];
-            string bathrooms = details[1].Split("\r\n")[0];
-            string squareFootage = details[2].Split("\r\n")[0];
+            string bedroomsText = details[0].Split("\r\n")[0];
+            int bedrooms = ExtractValue<int>(bedroomsText);
+
+            string bathroomsText = details[1].Split("\r\n")[0];
+            int bathrooms = ExtractValue<int>(bathroomsText);
+
+            string squareFootageText = details[2].Split("\r\n")[0];
+            decimal squareFootage = ExtractValue<decimal>(squareFootageText);
 
             // Extract MLS number
-            string[] mls = driver.FindElement(By.XPath("//div[@data-testid='listing-attribution-overview']")).Text.Split("\r\n");
+            List<string> agentDetails = driver.FindElement(By.XPath("//div[@data-testid='listing-attribution-overview']")).Text.Split("\r\n").ToList();
+            string mlsText = agentDetails[^1].Split("MLS#:").Last();
+            int mls = ExtractValue<int>(mlsText);
+            int yearBuilt = 0;
 
             // Extract insight tags
-            string s = driver.FindElement(By.XPath("//h2")).Text;
-            List<string> i = driver.FindElements(By.XPath("//div[@aria-label='insights tags']")).Select(x => x.Text).ToList();
-            (string special, List<string> insights) specialInsights = (s, i);
+            string special = driver.FindElement(By.XPath("//h2")).Text;
+            List<string> insights = driver.FindElements(By.XPath("//div[@aria-label='insights tags']")).Select(x => x.Text).ToList();
+            (string special, List<string> insights) specialInsights = (special, insights);
 
             // Extract additional features and description
             string description = driver.FindElement(By.XPath("//div[@data-testid='description']")).Text;
@@ -73,8 +72,9 @@ internal class ZillowScraper
             // Elements inside features
             var elements = driver.FindElements(By.XPath("//div[@data-testid='fact-category']"));
 
-            //class
+            // Create Features Liste
             List<FeatureInfo> mainFeaturesList = new List<FeatureInfo>();
+            int start = 0;
             // Extract text from each element using JavaScript
             foreach (IWebElement h in h3)
             {
@@ -88,13 +88,42 @@ internal class ZillowScraper
                     mainFeatureText = text;
                 }
 
-                foreach (IWebElement element in elements)
+                bool isFinished = false;
+                do
                 {
-                    string[] texts = JSExecution(driver, element).Trim().Split("\r\n");
+                    string[] texts = null;
+                    try
+                    {
+                        texts = JSExecution(driver, elements[start++]).Trim().Split("\r\n");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        isFinished = true;
+                        break;
+                    }
                     bool isFirst = true;
 
                     string subFeatureText = "";
                     List<string> subElements = new();
+
+                    try
+                    {
+                        var nextItem = elements[start].Text.Trim().Split("\r\n").First();
+                        if (nextItem == "Parking" || nextItem == "Type & style" || nextItem == "Community")
+                        {
+                            isFinished = true;
+                        }
+                        else if (nextItem == "Condition" || nextItem == "Location")
+                        {
+                            isFinished = true;
+                            isFirst = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
 
                     foreach (string t in texts)
                     {
@@ -108,24 +137,71 @@ internal class ZillowScraper
                             else
                             {
                                 subElements.Add(t);
+                                if (t.Contains("Year built"))
+                                {
+                                    string yearBuiltText = t;
+                                    yearBuilt = ExtractValue<int>(yearBuiltText);
+                                }
                             }
                         }
+
                     }
-                    subFeaturesList.Add(new SubFeatureInfo(subFeatureText, subElements));
-                }
+                    subFeaturesList.Add(new SubFeatureInfo(subFeatureText, new List<string>(subElements)));
+                } while (!isFinished);
                 // add to feature class
-                
-                mainFeaturesList.Add(new FeatureInfo(mainFeatureText, subFeaturesList));
+
+                mainFeaturesList.Add(new FeatureInfo(mainFeatureText, new List<SubFeatureInfo>(subFeaturesList)));
                 subFeaturesList.Clear();
             }
             Features = new FeaturesCollection(mainFeaturesList);
-            Console.WriteLine();
+
+
+            PropertyModel propertyModel = new PropertyModel()
+            {
+                Price = price,
+                PropertyAddress = address,
+                Bedrooms = bedrooms,
+                Bathrooms = bathrooms,
+                SquareFootage = squareFootage,
+                YearBuilt = yearBuilt,
+                AgentDetails = agentDetails,
+                MLSNumber = mls,
+                Features = Features,
+                DateCreated = DateTime.Now
+            };
         }
         finally
         {
             // Close the browser
             driver.Quit();
         }
+    }
+
+    private T ExtractValue<T>(string text) where T : struct, IConvertible
+    {
+        StringBuilder extractor = new StringBuilder();
+        foreach (var c in text)
+        {
+            if (char.IsDigit(c) || c == '.')
+            {
+                extractor.Append(c);
+            }
+        }
+        string result = extractor.ToString();
+        if (typeof(T) == typeof(decimal))
+        {
+            decimal.TryParse(result, out decimal value);
+            object boxedValue = value;
+            return (T)boxedValue;
+        }
+        else if (typeof(T) == typeof(int))
+        {
+            int.TryParse(result, out int value);
+            object boxedValue = value;
+            return (T)boxedValue;
+        }
+
+        return default(T);
     }
 
     private string JSExecution(IWebDriver driver, IWebElement element)
