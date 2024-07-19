@@ -12,10 +12,9 @@ using SeleniumExtras.WaitHelpers;
 
 namespace PageScraper.Scrapers;
 
-internal class ZillowScraper
+public class ZillowScraper
 {
     private readonly string _url;
-    public FeaturesCollection Features { get; private set; }
     public ZillowScraper(string url)
     {
         _url = url;
@@ -36,33 +35,65 @@ internal class ZillowScraper
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@data-testid]")));
 
             // Extract property address
-            string address = driver.FindElement(By.XPath("//h1")).Text;
+            string[] fullAddress = driver.FindElement(By.XPath("//h1")).Text.Split(",");
 
-            // Extract price
+            // Break address into components
+            string street = fullAddress[0].Trim();
+            string city = fullAddress[1].Trim();
+            string divisionCode = fullAddress[2].Trim();
+            string[] divCodeArray = divisionCode.Split(" ");
+            string subdivision = divCodeArray[0];
+            string code = divCodeArray[1];
+            string country = char.IsLetter(code[0]) ? "Canada" : "US";
+            Address PropertyAddress = new Address()
+            {
+                StreetAddress = street,
+                City = city,
+                StateOrProvince = subdivision,
+                ZipOrPostalCode = code,
+                Country = country
+            };
+
+            // Extract price and initialize year built variable
             string priceText = driver.FindElement(By.XPath("//span[@data-testid='price']")).Text;
             decimal price = ExtractValue<decimal>(priceText);
+            int yearBuilt = 0;
 
             // Extract number of bedrooms, bathrooms, and square footage
             List<string> details = driver.FindElements(By.XPath("//div[@data-testid='bed-bath-sqft-fact-container']")).Select(x => x.Text).ToList();
-            string bedroomsText = details[0].Split("\r\n")[0];
+            string bedroomsText = details[0].Split("\r\n")[0].Trim();
             int bedrooms = ExtractValue<int>(bedroomsText);
 
-            string bathroomsText = details[1].Split("\r\n")[0];
+            string bathroomsText = details[1].Split("\r\n")[0].Trim();
             int bathrooms = ExtractValue<int>(bathroomsText);
 
-            string squareFootageText = details[2].Split("\r\n")[0];
+            string squareFootageText = details[2].Split("\r\n")[0].Trim();
             decimal squareFootage = ExtractValue<decimal>(squareFootageText);
 
-            // Extract MLS number
+            // Extract MLS number and details of agents
             List<string> agentDetails = driver.FindElement(By.XPath("//div[@data-testid='listing-attribution-overview']")).Text.Split("\r\n").ToList();
+            string lastChecked = agentDetails[0];
+            string lastUpdated = agentDetails[1];
+
+            List<Agent> agents = new List<Agent>();
+            for (int i = 3; i < agentDetails.Count() - 1; i += 2)
+            {
+                string[] temp1 = agentDetails[i].Split(" ");
+                string temp2 = agentDetails[i + 1];
+                Agent agent = new Agent()
+                {
+                    Name = $"{temp1[0]} {temp1[1]}",
+                    Phone = temp1[2],
+                    Company = temp2
+                };
+                agents.Add(agent);
+            }
+
             string mlsText = agentDetails[^1].Split("MLS#:").Last();
             int mls = ExtractValue<int>(mlsText);
-            int yearBuilt = 0;
 
             // Extract insight tags
-            string special = driver.FindElement(By.XPath("//h2")).Text;
-            List<string> insights = driver.FindElements(By.XPath("//div[@aria-label='insights tags']")).Select(x => x.Text).ToList();
-            (string special, List<string> insights) specialInsights = (special, insights);
+            List<string> insights = driver.FindElement(By.XPath("//div[@aria-label='insights tags']")).Text.Split("\r\n").ToList();
 
             // Extract additional features and description
             string description = driver.FindElement(By.XPath("//div[@data-testid='description']")).Text;
@@ -153,21 +184,22 @@ internal class ZillowScraper
                 mainFeaturesList.Add(new FeatureInfo(mainFeatureText, new List<SubFeatureInfo>(subFeaturesList)));
                 subFeaturesList.Clear();
             }
-            Features = new FeaturesCollection(mainFeaturesList);
-
 
             PropertyModel propertyModel = new PropertyModel()
             {
                 Price = price,
-                PropertyAddress = address,
+                PropertyAddress = PropertyAddress,
                 Bedrooms = bedrooms,
                 Bathrooms = bathrooms,
                 SquareFootage = squareFootage,
                 YearBuilt = yearBuilt,
-                AgentDetails = agentDetails,
+                Insights = insights,
+                Agents = agents,
                 MLSNumber = mls,
-                Features = Features,
-                DateCreated = DateTime.Now
+                Features = mainFeaturesList,
+                LastChecked = lastChecked,
+                LastUpdated = lastUpdated,
+                DateFound = DateTime.Now
             };
         }
         finally
@@ -201,7 +233,7 @@ internal class ZillowScraper
             return (T)boxedValue;
         }
 
-        return default(T);
+        return default;
     }
 
     private string JSExecution(IWebDriver driver, IWebElement element)

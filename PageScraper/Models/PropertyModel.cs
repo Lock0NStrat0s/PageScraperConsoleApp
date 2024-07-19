@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium.DevTools.V124.Autofill;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,34 @@ public class PropertyModel
 {
     public int PropertyID { get; set; }
     public decimal Price { get; set; }
-    public string PropertyAddress { get; set; }
     public int Bedrooms { get; set; }
     public int Bathrooms { get; set; }
     public decimal SquareFootage { get; set; }
     public int YearBuilt { get; set; }
-    public List<string> AgentDetails { get; set; }
+    public Address PropertyAddress { get; set; }
+    public List<Agent> Agents { get; set; }
+    public List<string> Insights { get; set; }
     public int MLSNumber { get; set; }
-    //public SubFeatureInfo SubFeatures { get; set; }
-    //public FeatureInfo MainFeatures { get; set; }
-    public FeaturesCollection Features { get; set; }
-    public DateTime DateCreated { get; set; }
+    public List<FeatureInfo> Features { get; set; }
+    public string LastChecked { get; set; }
+    public string LastUpdated { get; set; }
+    public DateTime DateFound { get; set; }
+}
+
+public class Address
+{
+    public string StreetAddress { get; set; }
+    public string City { get; set; }
+    public string StateOrProvince { get; set; }
+    public string ZipOrPostalCode { get; set; }
+    public string Country { get; set; }
+}
+
+public class Agent
+{
+    public string Name { get; set; }
+    public string Phone { get; set; }
+    public string Company { get; set; }
 }
 
 public class SubFeatureInfo
@@ -44,15 +62,5 @@ public class FeatureInfo
     {
         MainFeatures = mainFeatures;
         SubFeatures = subFeatures;
-    }
-}
-
-public class FeaturesCollection
-{
-    public List<FeatureInfo> Features { get; set; }
-
-    public FeaturesCollection(List<FeatureInfo> features)
-    {
-        Features = features;
     }
 }
